@@ -1,30 +1,12 @@
-require_relative 'entry'
-
-    class AddressBook
-       attr_reader :entries
-       
-       def initialize
-         @entries = []
-       end
-    end
-    
-        def add_entry(name, phone_number, email)
-             index = 0
-             entries.each do |entry|
-               if name < entry.name
-                 break
-               end
-               index+= 1
-             end
-   require_relative '../models/address_book'
-   
+require_relative '../models/address_book'
  
  RSpec.describe AddressBook do
    describe "attributes" do
      it "responds to entries" do
        book = AddressBook.new
        expect(book).to respond_to(:entries)
-      
+     end
+     
      it "initializes entries as an array" do
        book = AddressBook.new
        expect(book.entries).to be_an(Array)
@@ -34,10 +16,9 @@ require_relative 'entry'
        book = AddressBook.new
        expect(book.entries.size).to eq(0)
      end
-    end
-  end
-  
- describe "#add_entry" do
+   end
+   
+  describe "#add_entry" do
      it "adds only one entry to the address book" do
        book = AddressBook.new
        book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
@@ -56,4 +37,3 @@ require_relative 'entry'
      end
    end
  end
-end
